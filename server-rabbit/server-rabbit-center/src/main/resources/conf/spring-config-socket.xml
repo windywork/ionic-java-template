@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:websocket="http://www.springframework.org/schema/websocket" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+      http://www.springframework.org/schema/websocket
+        http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+ 	
+ 	<bean name="entrySchoolHandler" class="cn.hebei.speed.rabbit.center.socket.EntrySchoolHandler"/>
+  
+	 
+	<websocket:handlers allowed-origins="*">
+		<websocket:mapping path="/entrySchool.ws" handler="entrySchoolHandler" />
+		<websocket:handshake-interceptors>
+			<bean class="cn.hebei.speed.rabbit.center.socket.HandshakeInterceptor">
+				
+			</bean>
+		</websocket:handshake-interceptors>
+		<websocket:sockjs/>
+	</websocket:handlers>
+
+</beans>

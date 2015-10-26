@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 命名空间 -->
+	<typeAliases>
+
+		<typeAlias alias="AttendClassEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.AttendClassEmpty" />
+		<typeAlias alias="ClassHeadEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.ClassHeadEmpty" />
+		<typeAlias alias="CommunityEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.CommunityEmpty" />
+		<typeAlias alias="PositionEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.PositionEmpty" />
+		<typeAlias alias="SchoolEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.SchoolEmpty" />
+		<typeAlias alias="StudentEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.StudentEmpty" />
+		<typeAlias alias="TeachEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.TeachEmpty" />
+		<typeAlias alias="TeacherEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.TeacherEmpty" />
+		<typeAlias alias="UserEmpty"
+			type="cn.hebei.speed.rabbit.center.empty.UserEmpty" />
+
+	</typeAliases>
+
+	<!-- 映射map -->
+	<mappers>
+	</mappers>
+</configuration>

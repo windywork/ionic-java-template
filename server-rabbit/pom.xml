@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.hebei.speed</groupId>
+  <artifactId>server-rabbit</artifactId>
+  <version>0.0.1</version>
+  <packaging>pom</packaging>
+  <name>速捷小学生</name>
+  <description>速捷小学生专门为小学定制的教育平台</description>
+  <modules>
+    <module>server-rabbit-common</module>
+    <module>server-rabbit-domain</module>
+    <module>server-rabbit-center</module>
+  </modules>
+</project>

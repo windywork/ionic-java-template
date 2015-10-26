@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>连接测试</title>
+	<script src="hprose-html5.js"></script>
+	<script src="sockjs.min.js"></script>
+	<script>
+		function $(el){
+			return document.querySelectorAll(el);
+		}
+		var hproseUrl='http://localhost:8080/server-rabbit-center/remote/schoolUser.rpc';
+		var socketUrl='http://localhost:8080/server-rabbit-center/remote/entrySchool.ws';
+		
+	  	var client = new hprose.HttpClient(hproseUrl, ["enterSchool","login"]);
+		function enterSchool(){
+		 	client.enterSchool($('#schoolId')[0].value, function(result) {
+		 		$('#edit1')[0].innerHTML=JSON.stringify(result);
+		    }, function(name, err) {
+		    	$('#edit1')[0].innerHTML=JSON.stringify(err);
+		    });
+		}
+		function login(){
+			client.login($('#loginName')[0].value,$('#password')[0].value,"", function(result) {
+				$('#edit2')[0].innerHTML=JSON.stringify(result);
+		    }, function(name, err) {
+		    	$('#edit2')[0].innerHTML=JSON.stringify(err);
+		    });
+		}
+		var sockjs=null;
+		function socketConn(){
+			sockjs = new SockJS(socketUrl);
+			sockjs.onopen = function() {
+				$('#edit3')[0].innerHTML='socket conn open.';
+			};
+			sockjs.onerror=function(e){
+				$('#edit3')[0].innerHTML='socjet error:'+JSON.stringify(e);
+			
+			};
+			sockjs.onclose=function(){
+				$('#edit3')[0].innerHTML='socjet close';
+			};
+		}
+	</script>
+	<style>
+		.edit{
+			width:600px;
+			height:180px;
+			padding:1rem;
+			background:#000;
+			color:#fff;
+			overflow:auto;
+		}
+		button{
+			font-size:2rem;
+			padding:1rem;
+		}
+	</style>
+</head>
+<body>
+	<h1>第一步-进入学校</h1>
+		<p>学校编号:<input type="text" value="1"  id="schoolId" /></p>
+		<p><button onclick="enterSchool()">进入</button></p>
+		<pre id="edit1" class="edit" contenteditable="true"></pre>
+	<hr />
+	<h1>第二步-登录用户</h1>
+		<p><input type="text"  id="loginName" value="s0001" /></p>
+		<p><input type="text"  id="password" value="123456" /></p>
+		<p><button onclick="login()">登录用户</button></p>
+		<pre id="edit2" class="edit" contenteditable="true"></pre>
+	<hr />
+	<h1>第三步-创建长连接</h1>
+	<p><button onclick="socketConn()">远程连接</button></p>
+	<pre id="edit3" class="edit" contenteditable="true"></pre>
+</body>
+</html>
