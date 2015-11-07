@@ -12,11 +12,11 @@
 		<property name="locations">
 			<list>
 				<value>classpath:conf/jdbc.properties</value>
-				<value>classpath:conf/memcached.properties</value>
+				<!-- <value>classpath:conf/memcached.properties</value>-->
 			</list>
 		</property>
 	</bean>
 	<!-- 引入其他配置文件 -->
-	<import resource="spring-config-memcache.xml" />
+	<!-- <import resource="spring-config-memcache.xml" /> -->
 	<import resource="spring-config-mybatis.xml" />
 </beans>

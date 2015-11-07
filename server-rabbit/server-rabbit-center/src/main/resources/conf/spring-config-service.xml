@@ -13,13 +13,14 @@
 	 <!-- 添加注解驱动 -->
 	 <mvc:annotation-driven />
 	 <context:component-scan base-package="cn.hebei.speed.rabbit.center.service.impl"/> 
-
-	<bean name="/schoolUser.rpc"   
+ 	<bean class="com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceExporter"/>
+ 	
+	<bean name="/user.hprose"   
         class="org.springframework.remoting.hprose.HproseHttpServiceExporter"  
-        p:serviceInterface="cn.hebei.speed.rabbit.center.service.SchoolUserService"  
-        p:service-ref="schoolUserServiceImpl" >  
+        p:serviceInterface="cn.hebei.speed.rabbit.center.service.UserService"  
+        p:service-ref="userServiceImpl" >  
     </bean> 
-   
+  
     
     <!-- 引入 socket 配置文件 -->
 	<import resource="spring-config-socket.xml"/>

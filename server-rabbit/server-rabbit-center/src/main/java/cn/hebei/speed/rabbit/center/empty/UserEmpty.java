@@ -19,15 +19,6 @@ public class UserEmpty implements java.io.Serializable {
 	private Date last_login_time;
 	private String last_login_ip;
 	private String remarks;
-	
-	private TeacherEmpty teacher;
-	private StudentEmpty student;
-	
-	private PositionEmpty [] positions;
-	private TeachEmpty [] teachs; 
-	private ClassHeadEmpty [] classHeads;
-	private AttendClassEmpty [] attendClasses;
-	private CommunityEmpty [] communityHeads;
-	private CommunityEmpty [] attendCommunities;
+
 	
  }

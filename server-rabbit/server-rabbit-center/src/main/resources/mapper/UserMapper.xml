@@ -8,14 +8,9 @@
 	
 	<select id="findUserOnLogin"  resultType="Long">
 		select a.id from t_users a 
-		   left join v_teacher_position b on a.id=b.user_id
-		   left join v_teacher_teach c on a.id=c.user_id
-		   left join v_class_headmaster d on a.id=d.user_id 
-		   left join v_student_attend e on a.id=e.user_id 
 		   where a.login_name=#{0} 
 		    and a.password=#{1} 
-		    and (b.school_id=#{2}  or c.school_id=#{2} or d.school_id=#{2} or e.school_id=#{2})
-		   group by a.id,b.school_id,c.school_id,d.school_id,e.school_id limit 1 ;
+		    limit 1 ;
 	</select>
 	
 	
@@ -23,37 +18,4 @@
 		select * from t_users where id=#{0} limit 1;
 	</select>
 	
-		
-	<select id="findTeacherByUser"  resultType="TeacherEmpty">
-		select * from t_teacher where user_id=#{0} limit 1;
-	</select>
-	
-	<select id="findStudentByUser"  resultType="StudentEmpty">
-		select * from t_student where user_id=#{0} limit 1;
-	</select>
-	
-	<select id="queryPositionByUserAndSchool"  resultType="PositionEmpty">
-		select * from v_teacher_position where user_id=#{0} and school_id=#{1};
-	</select>
-	
-	<select id="queryTeachByUserAndSchool"  resultType="TeachEmpty">
-		select * from v_teacher_teach where user_id=#{0} and school_id=#{1};
-	</select>
-	
-	<select id="queryClassHeadByUserAndSchool"  resultType="ClassHeadEmpty">
-		select * from v_class_headmaster where user_id=#{0} and school_id=#{1};
-	</select>
-	
-	<select id="queryAttendClassByUserAndSchool"  resultType="AttendClassEmpty">
-		select * from v_student_attend where user_id=#{0} and school_id=#{1};
-	</select>
-
-	<select id="queryCommunityHeadByUserAndSchool"  resultType="CommunityEmpty">
-		select * from v_community_manager where user_id=#{0} and school_id=#{1};
-	</select>
-	
-	<select id="queryAttendCommunityByUserAndSchool"  resultType="CommunityEmpty">
-		select * from v_community_attend where user_id=#{0} and school_id=#{1};
-	</select>		
-
 </mapper>
